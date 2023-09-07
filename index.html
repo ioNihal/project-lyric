@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/play-button-o.css' rel='stylesheet'>
     <title>Lyrics Project</title>
     <style>
         body {
@@ -35,6 +36,31 @@
             width: 90%;
         }
 
+         .gg-play-button-o {
+ box-sizing: border-box;
+ position: relative;
+ display: block;
+ transform: scale(var(--ggs,1));
+ width: 22px;
+ height: 22px;
+ border: 2px solid;
+ border-radius: 20px
+}
+
+.gg-play-button-o::before {
+ content: "";
+ display: block;
+ box-sizing: border-box;
+ position: absolute;
+ width: 0;
+ height: 10px;
+ border-top: 5px solid transparent;
+ border-bottom: 5px solid transparent;
+ border-left: 6px solid;
+ top: 4px;
+ left: 7px
+} 
+
         #p2 {
             background-color: blue;
         }
@@ -44,7 +70,7 @@
 <body>
     <section class="landing">
         <div class="container">
-            <div class="play"></div>
+            <div class="gg-play-button-o"></div>
         </div>
     </section>
     <section class="page" id="p1">
