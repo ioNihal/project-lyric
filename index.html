@@ -55,11 +55,11 @@
             font-size: 7rem;
             color: antiquewhite;
             font-family: 'JetBrains Mono';
-            -webkit-animation: focus-in-contract 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: focus-in-contract 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-            /*animation: blink 1.5s linear infinite;*/
+            /*-webkit-animation: focus-in-contract 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: focus-in-contract 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;*/
+            animation: blink 1.5s linear infinite;
         }
-/*
+
         @keyframes blink {
             0% {
                 opacity: 0;
@@ -85,7 +85,7 @@
                 opacity: 0;
             }
         }
-        */
+       /*
         @-webkit-keyframes focus-in-contract {
   0% {
     letter-spacing: 1em;
@@ -111,8 +111,10 @@
             filter: blur(0px);
     opacity: 1;
   }
-        } 
-
+        } */
+embed {
+	opacity:0;
+}
         #landing {
             background: rgb(5, 1, 74);
             background: linear-gradient(180deg, rgba(5, 1, 74, 1) 0%, rgba(0, 0, 0, 1) 100%);
@@ -131,9 +133,10 @@
 </head>
 
 <body>
-    <embed id="audio" src="song.mp3" autostart="false" hidden="true"></embed>
+    
     <section class="page" id="landing">
         <div class="container">
+		<embed id="audio" src="song.mp3" autostart="false" hidden="true"></embed>
             <div class="play">
                 <img class="pimage" src="play.png" id="button" onclick="startPlaying()">
                 
