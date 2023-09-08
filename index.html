@@ -46,7 +46,9 @@
             width: 10em;
             height: 10em;
         }
-
+        embed {
+            display:hidden;
+        } 
         .soon {
             /* font-family: 'Fira Code','JetBrains Mono', monospace;*/
             font-size: 7rem;
@@ -99,11 +101,12 @@
 </head>
 
 <body>
-    <embed id="audio" src="song.mp3" autostart="false" hidden="true"></embed>
+    
     <section class="page" id="landing">
         <div class="container">
             <div class="play">
                 <img class="pimage" src="play.png" id="button" onclick="startPlaying()">
+                <embed id="audio" src="song.mp3" autostart="false" hidden="true"></embed>
             </div>
         </div>
     </section>
