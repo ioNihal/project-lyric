@@ -6,8 +6,24 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=JetBrains Mono">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css">
     <title>Lyrics Project</title>
+
     <style>
+        /* <embed id="audio" src="song.mp3" autostart="false" hidden="true"></embed> */
         /* Use for debugging : border: 2px solid black;*/
+
+        /* Extra styles:
+          1 Fonts - font-family: 'Fira Code','JetBrains Mono', monospace;
+          2 Blink Animation - animation: blink 1.5s linear infinite; 
+            Keyframes -
+                @keyframes blink {
+                0% { opacity: 0;} 12.5% { opacity: 100;} 25% { opacity: 0;} 50% { opacity: 100;} 62.5% { opacity: 0;}
+                75% { opacity: 100; } 100% { opacity: 0; }} 
+          3 Blur In ANimation - animation: focus-in-contract 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both; 
+            Keyframes -
+                @keyframes focus-in-contract {
+                0% { letter-spacing: 1em; -webkit-filter: blur(12px); filter: blur(12px); opacity: 0;}
+                100% { -webkit-filter: blur(0px); filter: blur(0px); opacity: 1; }
+        */
         html {
             scroll-behavior: smooth;
         }
@@ -46,75 +62,42 @@
             width: 10em;
             height: 10em;
         }
-     /*
-	-webkit-animation: focus-in-contract 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: focus-in-contract 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-     */
+
         .soon {
-            /* font-family: 'Fira Code','JetBrains Mono', monospace;*/
-            font-size: 7rem;
+
+            font-size: 3rem;
             color: antiquewhite;
             font-family: 'JetBrains Mono';
-            /*-webkit-animation: focus-in-contract 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: focus-in-contract 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;*/
-            animation: blink 1.5s linear infinite;
+
+
         }
 
-        @keyframes blink {
-            0% {
-                opacity: 0;
-            }
-            12.5% {
-                opacity: 100;
-            }
-            25% {
-                opacity: 0;
-            }
+        .soon.active {
+            font-size: 3rem;
+            color: antiquewhite;
+            font-family: 'JetBrains Mono';
+            -webkit-animation: focus-in-contract 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
 
-            50% {
-                opacity: 100;
-            }
-            62.5% {
+        @-webkit-keyframes focus-in-contract {
+            0% {
+                letter-spacing: 1em;
+                -webkit-filter: blur(12px);
+                filter: blur(12px);
                 opacity: 0;
-            }
-            75% {
-                opacity: 100;
             }
 
             100% {
-                opacity: 0;
+                -webkit-filter: blur(0px);
+                filter: blur(0px);
+                opacity: 1;
             }
         }
-       /*
-        @-webkit-keyframes focus-in-contract {
-  0% {
-    letter-spacing: 1em;
-    -webkit-filter: blur(12px);
-            filter: blur(12px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-filter: blur(0px);
-            filter: blur(0px);
-    opacity: 1;
-  }
-}
-@keyframes focus-in-contract {
-  0% {
-    letter-spacing: 1em;
-    -webkit-filter: blur(12px);
-            filter: blur(12px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-filter: blur(0px);
-            filter: blur(0px);
-    opacity: 1;
-  }
-        } */
-embed {
-	opacity:0;
-}
+
+        embed {
+            opacity: 0;
+        }
+
         #landing {
             background: rgb(5, 1, 74);
             background: linear-gradient(180deg, rgba(5, 1, 74, 1) 0%, rgba(0, 0, 0, 1) 100%);
@@ -133,27 +116,27 @@ embed {
 </head>
 
 <body>
-    
+
     <section class="page" id="landing">
         <div class="container">
-		<embed id="audio" src="song.mp3" autostart="false" hidden="true"></embed>
+
             <div class="play">
                 <img class="pimage" src="play.png" id="button" onclick="startPlaying()">
-                
+
             </div>
         </div>
     </section>
     <section class="page" id="p1">
         <div class="container">
             <div class="lyrics">
-                <span class="soon" onclick="loadP2()">IN DEVELOPMENT</span>
+                <span class="soon" id="s1" onclick="loadP2()">IN DEVELOPMENT</span>
             </div>
         </div>
     </section>
     <section class="page" id="p2">
         <div class="container">
             <div class="lyrics">
-                <span class="soon" onclick="loadP0()">IN DEVELOPMENT</span>
+                <span class="soon" id="s2" onclick="loadP0()">IN DEVELOPMENT</span>
             </div>
         </div>
     </section>
@@ -161,11 +144,11 @@ embed {
         function startPlaying() {
             location.href = "#p1";
             var audio = document.getElementById("audio");
-    if (audio.paused) {
-      audio.play();
-    } else {
-      audio.pause();
-    } 
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
         }
         function loadP2() {
             location.href = "#p2";
@@ -173,11 +156,25 @@ embed {
         function loadP0() {
             location.href = "#landing";
         }
-  
+
+        // scroll observer using intersectionObserver API
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    console.log("not intersecting");
+                    entry.target.classList.add('active');
+                }
+                else entry.target.classList.remove('active');
         
+            });
+        });
 
-
+        const elements = [document.querySelector('#s1,#s2'),document.querySelector('#s2')];
+        elements.forEach(function(element) {
+            observer.observe(element);
+        })
     </script>
+
 </body>
 
 </html>
