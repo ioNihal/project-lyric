@@ -99,10 +99,11 @@
 </head>
 
 <body>
+    <embed id="audio" src="song.mp3" autostart="false" hidden="true"></embed>
     <section class="page" id="landing">
         <div class="container">
             <div class="play">
-                <img class="pimage" src="play.png" onclick="startPlaying()">
+                <img class="pimage" src="play.png" id="button" onclick="startPlaying()">
             </div>
         </div>
     </section>
@@ -122,14 +123,22 @@
     </section>
     <script>
         function startPlaying() {
-            location.href = "#p1"
+            location.href = "#p1";
+            var audio = document.getElementById("audio");
+    if (audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+    } 
         }
         function loadP2() {
-            location.href = "#p2"
+            location.href = "#p2";
         }
         function loadP0() {
-            location.href = "#landing"
+            location.href = "#landing";
         }
+  
+        
 
 
     </script>
