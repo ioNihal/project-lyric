@@ -169,7 +169,7 @@
             });
         });
 
-        const elements = [document.querySelector('#s1,#s2'),document.querySelector('#s2')];
+        const elements = document.querySelectorAll('.soon');
         elements.forEach(function(element) {
             observer.observe(element);
         })
