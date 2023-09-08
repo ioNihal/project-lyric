@@ -1,0 +1,22 @@
+    
+    /*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+        function isScrolledIntoView(elem) {
+            var docViewTop = $(window).scrollTop();
+            var docViewBottom = docViewTop + $(window).height();
+
+            var elemTop = $(elem).offset().top;
+            var elemBottom = elemTop + $(elem).height();
+
+            return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+        };
+
+        // listen for scroll event
+        $(window).scroll(function () {
+            // check if element is scrolled into view
+            if (isScrolledIntoView($('.soon'))) {
+                // element is scrolled into view, add animation class
+                $('.soon').addClass('.active');
+            }
+        });
+    </script>
+    */
