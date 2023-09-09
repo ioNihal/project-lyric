@@ -1,22 +1,38 @@
-    
-    /*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
-        function isScrolledIntoView(elem) {
-            var docViewTop = $(window).scrollTop();
-            var docViewBottom = docViewTop + $(window).height();
 
-            var elemTop = $(elem).offset().top;
-            var elemBottom = elemTop + $(elem).height();
+/*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    function isScrolledIntoView(elem) {
+        var docViewTop = $(window).scrollTop();
+        var docViewBottom = docViewTop + $(window).height();
 
-            return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
-        };
+        var elemTop = $(elem).offset().top;
+        var elemBottom = elemTop + $(elem).height();
 
-        // listen for scroll event
-        $(window).scroll(function () {
-            // check if element is scrolled into view
-            if (isScrolledIntoView($('.soon'))) {
-                // element is scrolled into view, add animation class
-                $('.soon').addClass('.active');
-            }
-        });
-    </script>
+        return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+    };
+
+    // listen for scroll event
+    $(window).scroll(function () {
+        // check if element is scrolled into view
+        if (isScrolledIntoView($('.soon'))) {
+            // element is scrolled into view, add animation class
+            $('.soon').addClass('.active');
+        }
+    });
+</script>
+*/
+
+/* Extra styles:
+      1 Fonts - font-family: 'Fira Code','JetBrains Mono', monospace;
+      2 Blink Animation - animation: blink 1.5s linear infinite; 
+        Keyframes -
+            @keyframes blink {
+            0% { opacity: 0;} 12.5% { opacity: 100;} 25% { opacity: 0;} 50% { opacity: 100;} 62.5% { opacity: 0;}
+            75% { opacity: 100; } 100% { opacity: 0; }} 
+      3 Blur In ANimation - animation: focus-in-contract 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both; 
+        Keyframes -
+            @keyframes focus-in-contract {
+            0% { letter-spacing: 1em; -webkit-filter: blur(12px); filter: blur(12px); opacity: 0;}
+            100% { -webkit-filter: blur(0px); filter: blur(0px); opacity: 1; }
     */
+
+/* <embed id="audio" src="song.mp3" autostart="false" hidden="true"></embed> */

@@ -8,21 +8,9 @@
     <title>Lyrics Project</title>
 
     <style>
-        /* <embed id="audio" src="song.mp3" autostart="false" hidden="true"></embed> */
         /* Use for debugging : border: 2px solid black;*/
-
         /* Extra styles:
           1 Fonts - font-family: 'Fira Code','JetBrains Mono', monospace;
-          2 Blink Animation - animation: blink 1.5s linear infinite; 
-            Keyframes -
-                @keyframes blink {
-                0% { opacity: 0;} 12.5% { opacity: 100;} 25% { opacity: 0;} 50% { opacity: 100;} 62.5% { opacity: 0;}
-                75% { opacity: 100; } 100% { opacity: 0; }} 
-          3 Blur In ANimation - animation: focus-in-contract 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both; 
-            Keyframes -
-                @keyframes focus-in-contract {
-                0% { letter-spacing: 1em; -webkit-filter: blur(12px); filter: blur(12px); opacity: 0;}
-                100% { -webkit-filter: blur(0px); filter: blur(0px); opacity: 1; }
         */
         html {
             scroll-behavior: smooth;
@@ -166,12 +154,12 @@
                     entry.target.classList.add('active');
                 }
                 else entry.target.classList.remove('active');
-        
+
             });
         });
 
         const elements = document.querySelectorAll('.soon');
-        elements.forEach(function(element) {
+        elements.forEach(function (element) {
             observer.observe(element);
         })
     </script>
