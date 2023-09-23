@@ -150,10 +150,17 @@
         var observer = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
-                    console.log("not intersecting");
+                    console.log("is intersecting");
+                    entry.target.style.opacity='100'; //fixed something that bothered my animation :)
                     entry.target.classList.add('active');
                 }
-                else entry.target.classList.remove('active');
+                else 
+                 {
+                    entry.target.classList.remove('active');
+                    entry.target.style.opacity='0';
+                 }
+                    
+
 
             });
         });
