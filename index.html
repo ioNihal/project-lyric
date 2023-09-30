@@ -135,20 +135,47 @@
     </section>
     <script>
         function startPlaying() {
-            location.href = "#p1";
+            //location.href = "#p1";
             var audio = document.getElementById("audio");
             if (audio.paused) {
                 audio.play();
+                //scroll script
+                startScroll();
             } else {
                 audio.pause();
             }
         }
-        function loadP2() {
+
+        function startScroll() {
+    var delay = 5000; // 5 seconds
+    var sections = document.querySelectorAll('.page');
+    var currentSectionIndex = 0;
+
+    function scrollToSection(index) {
+        if (index >= 0 && index < sections.length) {
+            sections[index].scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
+    // Call scrollToSection to initially scroll to the first section
+    scrollToSection(currentSectionIndex);
+
+    // Use setInterval to automatically scroll to the next section
+    setInterval(function () {
+        currentSectionIndex++;
+        if (currentSectionIndex >= sections.length) {
+            currentSectionIndex = 0; // Loop back to the first section
+        }
+        scrollToSection(currentSectionIndex);
+    }, delay);
+}
+
+        /*function loadP2() {
             location.href = "#p2";
         }
-        function loadP0() {
+        //function loadP0() {
             location.href = "#landing";
-        }
+        }*/
 
         // scroll observer using intersectionObserver API
         var observer = new IntersectionObserver(function (entries) {
