@@ -36,3 +36,124 @@
     */
 
 /* <embed id="audio" src="song.mp3" autostart="false" hidden="true"></embed> */
+
+//scroll script:
+
+// Define the time delay (in milliseconds)
+var delay = 5000; // 5 seconds
+
+// Define the sections
+var sections = document.querySelectorAll('.section');
+
+// Initialize the current section index
+var currentSectionIndex = 0;
+
+// Function to scroll to a section
+function scrollToSection(index) {
+    if (index >= 0 && index < sections.length) {
+        sections[index].scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+// Set an interval to scroll to the next section
+setInterval(function() {
+    currentSectionIndex++;
+    if (currentSectionIndex >= sections.length) {
+        currentSectionIndex = 0; // Loop back to the first section
+    }
+    scrollToSection(currentSectionIndex);
+}, delay);
+
+//loop
+if (currentSectionIndex >= sections.length) {
+    currentSectionIndex = 0; // Loop back to the first section
+}
+
+//button
+function loadP2() {
+    location.href = "#p2";
+}
+function loadP0() {
+    location.href = "#landing";
+}
+
+
+
+if (index >= 0 && index < sections.length) {
+    sections[index].scrollIntoView({ behavior: 'smooth' });
+    console.log("Delay is ", (index === 0) ? 1000 : 5000);
+}
+
+
+
+
+new 12.10.2023
+
+
+function startScroll() {
+    var sections = document.querySelectorAll('.page');
+
+    var currentSectionIndex = 0;
+    var count = 0;
+
+    if (isPlaying) {
+    currentSectionIndex++;
+    scrollToSection(currentSectionIndex);
+
+    if (count === 0) {
+        // Call myFunction again after 1 second
+        setTimeout(scrollToSection(currentSectionIndex), 1000);
+        count++;
+    } else {
+        // Call myFunction again after 5 seconds
+        setTimeout(scrollToSection(currentSectionIndex), 5000);
+    }
+    
+}
+
+    
+
+function scrollToSection(index) {
+        if (index >= 0 && index < sections.length) {
+            sections[index].scrollIntoView({
+                behavior: 'smooth'
+            });
+            console.log("Delay is ");
+        }
+    }
+}
+
+//Inter Section API
+
+function startScroll() {
+    var sections = document.querySelectorAll('.page');
+
+    var currentSectionIndex = 0;
+    var count = 0;
+
+    if (isPlaying) {
+    currentSectionIndex++;
+    scrollToSection(currentSectionIndex);
+
+    if (count === 0) {
+        // Call myFunction again after 1 second
+        setTimeout(scrollToSection(currentSectionIndex), 1000);
+        count++;
+    } else {
+        // Call myFunction again after 5 seconds
+        setTimeout(scrollToSection(currentSectionIndex), 5000);
+    }
+    
+}
+
+    
+
+function scrollToSection(index) {
+        if (index >= 0 && index < sections.length) {
+            sections[index].scrollIntoView({
+                behavior: 'smooth'
+            });
+            console.log("Delay is ");
+        }
+    }
+}
