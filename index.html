@@ -8,10 +8,10 @@
     <title>Lyrics Project</title>
 
     <style>
-        /* Use for debugging : border: 2px solid black;*/
-        /* Extra styles:
-          1 Fonts - font-family: 'Fira Code','JetBrains Mono', monospace;
-        */
+        /* Use for debugging : border: 2px solid black;
+        Extra styles:
+          1 Fonts - font-family: 'Fira Code','JetBrains Mono', monospace;*/
+
         html {
             scroll-behavior: smooth;
         }
@@ -102,6 +102,11 @@
             background: rgb(5, 1, 74);
             background: linear-gradient(180deg, rgba(5, 1, 74, 1) 0%, rgba(0, 0, 0, 1) 100%);
         }
+
+        #pend {
+            background: rgb(0, 0, 0);
+            background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(5, 1, 74, 1) 100%);
+        }
     </style>
 </head>
 
@@ -122,62 +127,78 @@
     <section class="page" id="p1">
         <div class="container">
             <div class="lyrics">
-                <span class="soon" id="s1" onclick="loadP2()">IN DEVELOPMENT</span>
+                <span class="soon" id="s1" onclick="">IN DEVELOPMENT</span>
             </div>
         </div>
     </section>
     <section class="page" id="p2">
         <div class="container">
             <div class="lyrics">
-                <span class="soon" id="s2" onclick="loadP0()">IN DEVELOPMENT</span>
+                <span class="soon" id="s2" onclick="">IN DEVELOPMENT</span>
+            </div>
+        </div>
+    </section>
+    <section class="page" id="pend">
+        <div class="container">
+            <div class="lyrics">
+                <span class="soon" id="s2" onclick="">THE END</span>
             </div>
         </div>
     </section>
     <script>
+        var audio = document.getElementById("audio");
+        var isPlaying = false;
+
         function startPlaying() {
-            //location.href = "#p1";
-            var audio = document.getElementById("audio");
             if (audio.paused) {
+                audio.currentTime = 0;
                 audio.play();
-                //scroll script
+                isPlaying = true;
                 startScroll();
+                console.log("SongPlaying");
             } else {
                 audio.pause();
+                isPlaying = false;
+                console.log("SongNotPlaying");
             }
         }
 
+
         function startScroll() {
-    var delay = 5000; // 5 seconds
-    var sections = document.querySelectorAll('.page');
-    var currentSectionIndex = 0;
+            var sections = document.querySelectorAll('.page');
 
-    function scrollToSection(index) {
-        if (index >= 0 && index < sections.length) {
-            sections[index].scrollIntoView({ behavior: 'smooth' });
+            var currentSectionIndex = 0;
+            var count = 0;
+
+            if (isPlaying) {
+                currentSectionIndex++;
+                scrollToSection(currentSectionIndex);
+
+                if (count === 0) {
+                    // Call myFunction again after 1 second
+                    setTimeout(scrollToSection(currentSectionIndex), 1000);
+                    count++;
+                } else {
+                    // Call myFunction again after 5 seconds
+                    setTimeout(scrollToSection(currentSectionIndex), 5000);
+                }
+
+            }
+
+
+
+            function scrollToSection(index) {
+                if (index >= 0 && index < sections.length) {
+                    sections[index].scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    console.log("Delay is ");
+                }
+            }
         }
-    }
 
-    // Call scrollToSection to initially scroll to the first section
-    scrollToSection(currentSectionIndex);
 
-    // Use setInterval to automatically scroll to the next section
-    setInterval(function () {
-        currentSectionIndex++;
-        if (currentSectionIndex >= sections.length) {
-            currentSectionIndex = 0; // Loop back to the first section
-        }
-        scrollToSection(currentSectionIndex);
-    }, delay);
-}
-
-        /*function loadP2() {
-            location.href = "#p2";
-        }
-        //function loadP0() {
-            location.href = "#landing";
-        }*/
-
-        // scroll observer using intersectionObserver API
+        //Inter Section API
         var observer = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
@@ -200,6 +221,7 @@
             observer.observe(element);
         })
     </script>
+
 
 </body>
 
