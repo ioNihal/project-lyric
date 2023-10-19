@@ -55,7 +55,6 @@
             cursor: pointer;
             -webkit-user-select: none;
             user-select: none;
-            font-size: 3rem;
             color: antiquewhite;
             font-family: 'JetBrains Mono';
 
@@ -71,16 +70,18 @@
 
         @keyframes focus-in-contract {
             0% {
-                letter-spacing: 1em;
+                letter-spacing: 1.2em;
                 -webkit-filter: blur(12px);
                 filter: blur(12px);
                 opacity: 0;
+                font-size: 1.5rem;
             }
 
             100% {
                 -webkit-filter: blur(0px);
                 filter: blur(0px);
                 opacity: 1;
+                font-size: 3rem;
             }
         }
 
@@ -93,20 +94,16 @@
             background: linear-gradient(180deg, rgba(5, 1, 74, 1) 0%, rgba(0, 0, 0, 1) 100%);
         }
 
-        #p1 {
+        #p1,#p3,#p5 {
             background: rgb(0, 0, 0);
             background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(5, 1, 74, 1) 100%);
         }
 
-        #p2 {
+        #p2,#p4,#pend {
             background: rgb(5, 1, 74);
             background: linear-gradient(180deg, rgba(5, 1, 74, 1) 0%, rgba(0, 0, 0, 1) 100%);
         }
 
-        #pend {
-            background: rgb(0, 0, 0);
-            background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(5, 1, 74, 1) 100%);
-        }
     </style>
 </head>
 
@@ -118,7 +115,7 @@
             <div class="play">
                 <img alt="playbutton" class="pimage" src="play.png" id="button" onclick="startPlaying()">
                 <audio id="audio" autoplay="false" hidden="true">
-                    <source src="song.mp3" type="audio/mpeg">
+                    <source src="newsong.mp3" type="audio/mpeg">
                     Your browser does not support the audio tag.
                 </audio>
             </div>
@@ -127,17 +124,39 @@
     <section class="page" id="p1">
         <div class="container">
             <div class="lyrics">
-                <span class="soon" id="s1" onclick="">IN DEVELOPMENT</span>
+                <span class="soon" id="s1" onclick="">REVENGE By XXXTENTACION</span>
             </div>
         </div>
     </section>
     <section class="page" id="p2">
         <div class="container">
             <div class="lyrics">
+                <span class="soon" id="s2" onclick="">Made by instgram/io.nihal</span>
+            </div>
+        </div>
+    </section>
+    <section class="page" id="p3">
+        <div class="container">
+            <div class="lyrics">
                 <span class="soon" id="s2" onclick="">IN DEVELOPMENT</span>
             </div>
         </div>
     </section>
+    <section class="page" id="p4">
+        <div class="container">
+            <div class="lyrics">
+                <span class="soon" id="s2" onclick="">IN DEVELOPMENT</span>
+            </div>
+        </div>
+    </section>
+    <section class="page" id="p5">
+        <div class="container">
+            <div class="lyrics">
+                <span class="soon" id="s2" onclick="">IN DEVELOPMENT</span>
+            </div>
+        </div>
+    </section>
+
     <section class="page" id="pend">
         <div class="container">
             <div class="lyrics">
@@ -164,17 +183,50 @@
                         behavior: 'smooth'
                     });
                     console.log("scrolling");
-                    console.log("Index 2");  
-                },1000);
-                
-                setTimeout(function() {
-                    sections[2].scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                    console.log("scrolling");  
-                    console.log("Index 3");
-                },5000);
+                    console.log("Index 2");
 
+                        setTimeout(function() {
+                        sections[2].scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                        console.log("scrolling");  
+                        console.log("Index 3");
+
+                            setTimeout(function() {
+                            sections[3].scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                            console.log("scrolling");  
+                            console.log("Index 4");
+
+                                setTimeout(function() {
+                                sections[4].scrollIntoView({
+                                behavior: 'smooth'
+                                });
+                                console.log("scrolling");  
+                                console.log("Index 4");
+
+                                    setTimeout(function() {
+                                    sections[5].scrollIntoView({
+                                    behavior: 'smooth'
+                                    });
+                                    console.log("scrolling");  
+                                    console.log("Index 5");
+
+                                        setTimeout(function() {
+                                        sections[6].scrollIntoView({
+                                            behavior: 'smooth'
+                                        });
+                                        console.log("scrolling");  
+                                        console.log("Index 6");
+                                    },4000);
+                                },3000);
+                            },3000);
+                        },5000);
+                    },5000);  
+                },2000);
+                
+                
             } else {
                 audio.pause();
                 isPlaying = false;
