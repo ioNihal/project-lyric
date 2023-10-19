@@ -149,53 +149,39 @@
         var audio = document.getElementById("audio");
         var isPlaying = false;
 
+        var sections = document.querySelectorAll('.page');
+    
         function startPlaying() {
             if (audio.paused) {
                 audio.currentTime = 0;
                 audio.play();
-                isPlaying = true;
-                startScroll();
                 console.log("SongPlaying");
+                isPlaying = true;
+        
+                console.log("Index 1");
+                setTimeout(function() {
+                    sections[1].scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    console.log("scrolling");
+                    console.log("Index 2");  
+                },1000);
+                
+                setTimeout(function() {
+                    sections[2].scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    console.log("scrolling");  
+                    console.log("Index 3");
+                },5000);
+
             } else {
                 audio.pause();
                 isPlaying = false;
                 console.log("SongNotPlaying");
-            }
+            }    
         }
 
-
-        function startScroll() {
-            var sections = document.querySelectorAll('.page');
-
-            var currentSectionIndex = 0;
-            var count = 0;
-
-            if (isPlaying) {
-                currentSectionIndex++;
-                scrollToSection(currentSectionIndex);
-
-                if (count === 0) {
-                    // Call myFunction again after 1 second
-                    setTimeout(scrollToSection(currentSectionIndex), 1000);
-                    count++;
-                } else {
-                    // Call myFunction again after 5 seconds
-                    setTimeout(scrollToSection(currentSectionIndex), 5000);
-                }
-
-            }
-
-
-
-            function scrollToSection(index) {
-                if (index >= 0 && index < sections.length) {
-                    sections[index].scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                    console.log("Delay is ");
-                }
-            }
-        }
 
 
         //Inter Section API
@@ -210,9 +196,6 @@
                     entry.target.classList.remove('active');
                     entry.target.style.opacity = '0';
                 }
-
-
-
             });
         });
 
