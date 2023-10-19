@@ -157,3 +157,6 @@ function scrollToSection(index) {
         }
     }
 }
+
+
+index < sections.length
