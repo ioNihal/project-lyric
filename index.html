@@ -114,7 +114,7 @@
 
             <div class="play">
                 <img alt="playbutton" class="pimage" src="play.png" id="button" onclick="startPlaying()">
-                <audio id="audio" autostart="0" autoplay="false" hidden="true">
+                <audio id="audio" autostart="0" autostart="false" autoplay="false" hidden="true">
                     <source src="newsong.mp3" type="audio/mpeg">
                     Your browser does not support the audio tag.
                 </audio>
@@ -169,6 +169,12 @@
         var isPlaying = false;
 
         var sections = document.querySelectorAll('.page');
+        var timeoutFirst = 0;
+        var timeoutSecond = 0;
+        var timeoutThird = 0;
+        var timeoutFourth = 0;
+        var timeoutFifth = 0;
+        var timeoutSixth = 0;
     
         function startPlaying() {
             if (audio.paused) {
@@ -178,42 +184,42 @@
                 isPlaying = true;
         
                 console.log("Index 1");
-                setTimeout(function() {
+                timeoutFirst = setTimeout(function() {
                     sections[1].scrollIntoView({
                         behavior: 'smooth'
                     });
                     console.log("scrolling");
                     console.log("Index 2");
 
-                        setTimeout(function() {
+                    timeoutSecond = setTimeout(function() {
                         sections[2].scrollIntoView({
                             behavior: 'smooth'
                         });
                         console.log("scrolling");  
                         console.log("Index 3");
 
-                            setTimeout(function() {
+                        timeoutThird = setTimeout(function() {
                             sections[3].scrollIntoView({
                                 behavior: 'smooth'
                             });
                             console.log("scrolling");  
                             console.log("Index 4");
 
-                                setTimeout(function() {
+                            timeoutFourth = setTimeout(function() {
                                 sections[4].scrollIntoView({
                                 behavior: 'smooth'
                                 });
                                 console.log("scrolling");  
                                 console.log("Index 4");
 
-                                    setTimeout(function() {
+                                timeoutFifth = setTimeout(function() {
                                     sections[5].scrollIntoView({
                                     behavior: 'smooth'
                                     });
                                     console.log("scrolling");  
                                     console.log("Index 5");
 
-                                        setTimeout(function() {
+                                    timeoutSixth = setTimeout(function() {
                                         sections[6].scrollIntoView({
                                             behavior: 'smooth'
                                         });
@@ -231,6 +237,13 @@
                 audio.pause();
                 isPlaying = false;
                 console.log("SongNotPlaying");
+                clearTimeout(timeoutFirst);
+                clearTimeout(timeoutSecond);
+                clearTimeout(timeoutThird);
+                clearTimeout(timeoutFourth);
+                clearTimeout(timeoutFifth);
+                clearTimeout(timeoutSixth);
+                console.log("Timeout Cleared")
             }    
         }
 
