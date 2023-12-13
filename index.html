@@ -91,19 +91,22 @@
 
         #landing {
             background: rgb(5, 1, 74);
-            background: linear-gradient(180deg, rgba(5, 1, 74, 1) 0%, rgba(0, 0, 0, 1) 100%);
+            background: linear-gradient(180deg, rgba(5, 1, 74, 1) 0%, rgb(0, 4, 15) 100%);
         }
 
-        #p1,#p3,#p5 {
+        #p1,
+        #p3,
+        #p5 {
             background: rgb(0, 0, 0);
-            background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(5, 1, 74, 1) 100%);
+            background: linear-gradient(180deg, rgb(0, 4, 15) 0%, rgba(5, 1, 74, 1) 100%);
         }
 
-        #p2,#p4,#pend {
+        #p2,
+        #p4,
+        #pend {
             background: rgb(5, 1, 74);
-            background: linear-gradient(180deg, rgba(5, 1, 74, 1) 0%, rgba(0, 0, 0, 1) 100%);
+            background: linear-gradient(180deg, rgba(5, 1, 74, 1) 0%, rgb(0, 4, 15) 100%);
         }
-
     </style>
 </head>
 
@@ -124,35 +127,39 @@
     <section class="page" id="p1">
         <div class="container">
             <div class="lyrics">
-                <span class="soon" id="s1" onclick="">REVENGE By XXXTENTACION</span>
+                <span class="soon" id="s1" onclick="">Some kill, some steal, <br>
+                    some break your heart</span>
             </div>
         </div>
     </section>
     <section class="page" id="p2">
         <div class="container">
             <div class="lyrics">
-                <span class="soon" id="s2" onclick="">Made by instgram/io.nihal</span>
+                <span class="soon" id="s2" onclick="">And you'd have thought that <br>
+                    i would let it go and let you walk</span>
             </div>
         </div>
     </section>
     <section class="page" id="p3">
         <div class="container">
             <div class="lyrics">
-                <span class="soon" id="s2" onclick="">IN DEVELOPMENT</span>
+                <span class="soon" id="s2" onclick="">Well, broken hearts break bones, <br>
+                     so in my grave, I'll rot</span>
             </div>
         </div>
     </section>
     <section class="page" id="p4">
         <div class="container">
             <div class="lyrics">
-                <span class="soon" id="s2" onclick="">IN DEVELOPMENT</span>
+                <span class="soon" id="s2" onclick="">And I don't wanna let it go, <br>
+                     so in my grave, I'll rot</span>
             </div>
         </div>
     </section>
     <section class="page" id="p5">
         <div class="container">
             <div class="lyrics">
-                <span class="soon" id="s2" onclick="">IN DEVELOPMENT</span>
+                <span class="soon" id="s2" onclick="">In my grave, I'll rot...</span>
             </div>
         </div>
     </section>
@@ -177,64 +184,64 @@
         var timeoutFourth = 0;
         var timeoutFifth = 0;
         var timeoutSixth = 0;
-    
+
         function startPlaying() {
             if (audio.paused) {
-                audio.currentTime = 0;
+                audio.currentTime = 68.9;
                 audio.play();
                 console.log("SongPlaying");
                 isPlaying = true;
-        
+
                 console.log("Index 1");
-                timeoutFirst = setTimeout(function() {
+                timeoutFirst = setTimeout(function () {
                     sections[1].scrollIntoView({
                         behavior: 'smooth'
                     });
                     console.log("scrolling");
                     console.log("Index 2");
 
-                    timeoutSecond = setTimeout(function() {
+                    timeoutSecond = setTimeout(function () {
                         sections[2].scrollIntoView({
                             behavior: 'smooth'
                         });
-                        console.log("scrolling");  
+                        console.log("scrolling");
                         console.log("Index 3");
 
-                        timeoutThird = setTimeout(function() {
+                        timeoutThird = setTimeout(function () {
                             sections[3].scrollIntoView({
                                 behavior: 'smooth'
                             });
-                            console.log("scrolling");  
+                            console.log("scrolling");
                             console.log("Index 4");
 
-                            timeoutFourth = setTimeout(function() {
+                            timeoutFourth = setTimeout(function () {
                                 sections[4].scrollIntoView({
-                                behavior: 'smooth'
+                                    behavior: 'smooth'
                                 });
-                                console.log("scrolling");  
+                                console.log("scrolling");
                                 console.log("Index 4");
 
-                                timeoutFifth = setTimeout(function() {
+                                timeoutFifth = setTimeout(function () {
                                     sections[5].scrollIntoView({
-                                    behavior: 'smooth'
+                                        behavior: 'smooth'
                                     });
-                                    console.log("scrolling");  
+                                    console.log("scrolling");
                                     console.log("Index 5");
 
-                                    timeoutSixth = setTimeout(function() {
+                                    timeoutSixth = setTimeout(function () {
                                         sections[6].scrollIntoView({
                                             behavior: 'smooth'
                                         });
-                                        console.log("scrolling");  
+                                        console.log("scrolling");
                                         console.log("Index 6");
-                                    },4000);
-                                },3000);
-                            },3000);
-                        },5000);
-                    },5000);  
-                },2000);
-                
-                
+                                    }, 20000);
+                                }, 5500);
+                            }, 4000);
+                        }, 3000);
+                    }, 3000);
+                }, 0);
+
+
             } else {
                 audio.pause();
                 isPlaying = false;
@@ -246,7 +253,7 @@
                 clearTimeout(timeoutFifth);
                 clearTimeout(timeoutSixth);
                 console.log("Timeout Cleared")
-            }    
+            }
         }
 
 
