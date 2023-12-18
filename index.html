@@ -144,7 +144,7 @@
         <div class="container">
             <div class="lyrics">
                 <span class="soon" id="s2" onclick="">Well, broken hearts break bones, <br>
-                     so in my grave, I'll rot</span>
+                    so in my grave, I'll rot</span>
             </div>
         </div>
     </section>
@@ -152,7 +152,7 @@
         <div class="container">
             <div class="lyrics">
                 <span class="soon" id="s2" onclick="">And I don't wanna let it go, <br>
-                     so in my grave, I'll rot</span>
+                    so in my grave, I'll rot</span>
             </div>
         </div>
     </section>
@@ -178,12 +178,6 @@
         var isPlaying = false;
 
         var sections = document.querySelectorAll('.page');
-        var timeoutFirst = 0;
-        var timeoutSecond = 0;
-        var timeoutThird = 0;
-        var timeoutFourth = 0;
-        var timeoutFifth = 0;
-        var timeoutSixth = 0;
 
         function startPlaying() {
             if (audio.paused) {
@@ -192,71 +186,21 @@
                 console.log("SongPlaying");
                 isPlaying = true;
 
-                console.log("Index 1");
-                timeoutFirst = setTimeout(function () {
-                    sections[1].scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                    console.log("scrolling");
-                    console.log("Index 2");
+                const sectionTimes = [68.9, 71.9, 74.9, 78.9, 84.4, 104.4];
 
-                    timeoutSecond = setTimeout(function () {
-                        sections[2].scrollIntoView({
+                let currentSectionIndex = 0;
+                audio.addEventListener('timeupdate', () => {
+                    if (audio.currentTime >= sectionTimes[currentSectionIndex]) {
+                        sections[currentSectionIndex + 1].scrollIntoView({
                             behavior: 'smooth'
                         });
-                        console.log("scrolling");
-                        console.log("Index 3");
-
-                        timeoutThird = setTimeout(function () {
-                            sections[3].scrollIntoView({
-                                behavior: 'smooth'
-                            });
-                            console.log("scrolling");
-                            console.log("Index 4");
-
-                            timeoutFourth = setTimeout(function () {
-                                sections[4].scrollIntoView({
-                                    behavior: 'smooth'
-                                });
-                                console.log("scrolling");
-                                console.log("Index 4");
-
-                                timeoutFifth = setTimeout(function () {
-                                    sections[5].scrollIntoView({
-                                        behavior: 'smooth'
-                                    });
-                                    console.log("scrolling");
-                                    console.log("Index 5");
-
-                                    timeoutSixth = setTimeout(function () {
-                                        sections[6].scrollIntoView({
-                                            behavior: 'smooth'
-                                        });
-                                        console.log("scrolling");
-                                        console.log("Index 6");
-                                    }, 20000);
-                                }, 5500);
-                            }, 4000);
-                        }, 3000);
-                    }, 3000);
-                }, 0);
-
-
-            } else {
-                audio.pause();
-                isPlaying = false;
-                console.log("SongNotPlaying");
-                clearTimeout(timeoutFirst);
-                clearTimeout(timeoutSecond);
-                clearTimeout(timeoutThird);
-                clearTimeout(timeoutFourth);
-                clearTimeout(timeoutFifth);
-                clearTimeout(timeoutSixth);
-                console.log("Timeout Cleared")
+                        console.log(`Scrolling to Index ${currentSectionIndex + 1}`);
+                        currentSectionIndex++;
+                    }
+                }
+                );
             }
         }
-
-
 
         //Inter Section API Here
         var observer = new IntersectionObserver(function (entries) {
