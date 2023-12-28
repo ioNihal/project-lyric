@@ -242,3 +242,42 @@ old scrolltosection code:
             }
         }
         */
+
+        old pages:
+        /* 
+        <div class="lyrics">
+                <span class="soon" id="s1" onclick="">Some kill, some steal, <br>
+                    some break your heart</span>
+            </div>
+        </div>
+    </section>
+    <section class="page" id="p2">
+        <div class="container">
+            <div class="lyrics">
+                <span class="soon" id="s2" onclick="">And you'd have thought that <br>
+                    i would let it go and let you walk</span>
+            </div>
+        </div>
+    </section>
+    <section class="page" id="p3">
+        <div class="container">
+            <div class="lyrics">
+                <span class="soon" id="s3" onclick="">Well, broken hearts break bones, <br>
+                    so in my grave, I'll rot</span>
+            </div>
+        </div>
+    </section>
+    <section class="page" id="p4">
+        <div class="container">
+            <div class="lyrics">
+                <span class="soon" id="s4" onclick="">And I don't wanna let it go, <br>
+                    so in my grave, I'll rot</span>
+            </div>
+        </div>
+    </section>
+    <section class="page" id="p5">
+        <div class="container">
+            <div class="lyrics">
+                <span class="soon" id="s5" onclick="">In my grave, I'll rot...</span>
+            </div>
+        </div> */
