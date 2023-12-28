@@ -31,11 +31,13 @@
         }
 
         .container {
-            height: 75%;
-            width: 90%;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
+            background-color: rgb(255, 0, 0);
+            max-height: 200px;
+            height: 200px;
+            width: 650px;
+            overflow-y: scroll;
+            scroll-behavior: smooth;
+
         }
 
         .play {
@@ -51,18 +53,42 @@
             height: 10em;
         }
 
+        .lyric-con {
+            height: 100px;
+            width: 550px;
+            padding: 50px 50px;
+        }
+
+        #con1 {
+            background-color: blue;
+        }
+
+        #con2 {
+            background-color: rgb(51, 255, 0);
+        }
+
+        #con3 {
+            background-color: rgb(251, 255, 0);
+        }
+
+        #con4 {
+            background-color: rgb(255, 0, 255);
+        }
+
+        .container::-webkit-scrollbar {
+            display: none;
+        }
+
         .soon {
             cursor: pointer;
             -webkit-user-select: none;
             user-select: none;
             color: antiquewhite;
             font-family: 'JetBrains Mono';
-
-
         }
 
         .soon.active {
-            font-size: 3rem;
+            font-size: 24px;
             color: antiquewhite;
             font-family: 'JetBrains Mono';
             animation: focus-in-contract 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
@@ -81,7 +107,7 @@
                 -webkit-filter: blur(0px);
                 filter: blur(0px);
                 opacity: 1;
-                font-size: 3rem;
+                font-size: 24px;
             }
         }
 
@@ -113,62 +139,33 @@
 <body>
 
     <section class="page" id="landing">
-        <div class="container">
-
-            <div class="play">
-                <img alt="playbutton" class="pimage" src="play.png" id="button" onclick="startPlaying()">
-                <audio id="audio" autostart="0" autostart="false" autoplay="false" hidden="true">
-                    <source src="newsong.mp3" type="audio/mpeg">
-                    Your browser does not support the audio tag.
-                </audio>
-            </div>
+        <div class="play">
+            <img alt="playbutton" class="pimage" src="play.png" id="button" onclick="startPlaying()">
+            <audio id="audio" autostart="0" autostart="false" autoplay="false" hidden="true">
+                <source src="newsong.mp3" type="audio/mpeg">
+                Your browser does not support the audio tag.
+            </audio>
         </div>
     </section>
     <section class="page" id="p1">
         <div class="container">
-            <div class="lyrics">
-                <span class="soon" id="s1" onclick="">Some kill, some steal, <br>
+            <div class="lyric-con" id="con1">
+                <span class="soon" id="s1">Some kill, some steal, <br>
                     some break your heart</span>
             </div>
-        </div>
-    </section>
-    <section class="page" id="p2">
-        <div class="container">
-            <div class="lyrics">
-                <span class="soon" id="s2" onclick="">And you'd have thought that <br>
-                    i would let it go and let you walk</span>
-            </div>
-        </div>
-    </section>
-    <section class="page" id="p3">
-        <div class="container">
-            <div class="lyrics">
-                <span class="soon" id="s2" onclick="">Well, broken hearts break bones, <br>
-                    so in my grave, I'll rot</span>
-            </div>
-        </div>
-    </section>
-    <section class="page" id="p4">
-        <div class="container">
-            <div class="lyrics">
-                <span class="soon" id="s2" onclick="">And I don't wanna let it go, <br>
-                    so in my grave, I'll rot</span>
-            </div>
-        </div>
-    </section>
-    <section class="page" id="p5">
-        <div class="container">
-            <div class="lyrics">
-                <span class="soon" id="s2" onclick="">In my grave, I'll rot...</span>
-            </div>
+            <div class="lyric-con" id="con2"><span class="soon" id="s2">And you'd have thought that <br>
+                    i would let it go and let you walk</span></div>
+            <div class="lyric-con" id="con3"><span class="soon" id="s3">Well, broken hearts break bones, <br>
+                    so in my grave, I'll rot</span></div>
+            <div class="lyric-con" id="con4"><span class="soon" id="s4">And I don't wanna let it go, <br>
+                    so in my grave, I'll rot</span></div>
+            <div class="lyric-con" id="con5"><span class="soon" id="s5">In my grave, I'll rot...</span></div>
         </div>
     </section>
 
     <section class="page" id="pend">
-        <div class="container">
-            <div class="lyrics">
-                <span class="soon" id="s2" onclick="">THE END</span>
-            </div>
+        <div class="lyrics">
+            <span class="soon" id="s6" onclick="">THE END</span>
         </div>
     </section>
     <script>
@@ -178,29 +175,33 @@
         var isPlaying = false;
 
         var sections = document.querySelectorAll('.page');
-
+        var lyricSections = document.querySelectorAll('.lyric-con');
+        var lyricCon = document.querySelector('.container');
         function startPlaying() {
             if (audio.paused) {
+                sections[1].scrollIntoView({
+                    behavior: 'smooth'
+                });
                 audio.currentTime = 68.9;
                 audio.play();
                 console.log("SongPlaying");
                 isPlaying = true;
 
-                const sectionTimes = [68.9, 71.9, 74.9, 78.9, 84.4, 104.4];
+                const sectionTimes = [71.9, 74.9, 78.9, 84.4, 104.4];
 
                 let currentSectionIndex = 0;
                 audio.addEventListener('timeupdate', () => {
                     if (audio.currentTime >= sectionTimes[currentSectionIndex]) {
-                        sections[currentSectionIndex + 1].scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                        console.log(`Scrolling to Index ${currentSectionIndex + 1}`);
+                        lyricCon.scrollTop = lyricSections[currentSectionIndex + 1].offsetTop - 880;
+                        /* dont whats this number, my code waasnt warking good it scrolls to end initally,
+                         so i thought putting some numbers that basically maths saved me : )*/
                         currentSectionIndex++;
                     }
                 }
                 );
             }
         }
+
 
         //Inter Section API Here
         var observer = new IntersectionObserver(function (entries) {
