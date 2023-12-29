@@ -190,9 +190,11 @@
                 const sectionTimes = [71.9, 74.9, 78.9, 84.4, 104.4];
 
                 let currentSectionIndex = 0;
+                var lyriclen = 200;
                 audio.addEventListener('timeupdate', () => {
                     if (audio.currentTime >= sectionTimes[currentSectionIndex]) {
-                        lyricCon.scrollTop = lyricSections[currentSectionIndex + 1].offsetTop - 880;
+                        lyricCon.scrollTop = lyriclen;
+                        lyriclen += 200;
                         /* dont whats this number, my code waasnt warking good it scrolls to end initally,
                          so i thought putting some numbers that basically maths saved me : )*/
                         currentSectionIndex++;
@@ -203,7 +205,7 @@
         }
 
 
-        //Inter Section API Here
+        //Inter Section API Here 
         var observer = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
