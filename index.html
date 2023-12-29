@@ -31,7 +31,7 @@
         }
 
         .container {
-            background-color: rgb(255, 0, 0);
+
             max-height: 200px;
             height: 200px;
             width: 650px;
@@ -41,6 +41,7 @@
         }
 
         .play {
+            cursor: pointer;
             width: 13em;
             height: 13em;
             display: flex;
@@ -57,22 +58,6 @@
             height: 100px;
             width: 550px;
             padding: 50px 50px;
-        }
-
-        #con1 {
-            background-color: blue;
-        }
-
-        #con2 {
-            background-color: rgb(51, 255, 0);
-        }
-
-        #con3 {
-            background-color: rgb(251, 255, 0);
-        }
-
-        #con4 {
-            background-color: rgb(255, 0, 255);
         }
 
         .container::-webkit-scrollbar {
@@ -109,6 +94,64 @@
                 opacity: 1;
                 font-size: 24px;
             }
+        }
+
+        .card {
+            width: 300px;
+            height: 400px;
+            background-color: black;
+            border-radius: 20px;
+        }
+
+        .album-art {
+            width: 100%;
+            height: 74%;
+            background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), black);
+        }
+
+        .art {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            height: 50px;
+        }
+
+        .controls button {
+            background-color: rgba(37, 37, 37, 0.596);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-family: 'Fira Code';
+            cursor: pointer;
+        }
+
+        #splay {
+            font-size: larger;
+        }
+
+        .song-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            height: 50px;
+        }
+
+        .song-info span {
+            color: white;
+            font-family: 'JetBrains Mono';
+            cursor: pointer;
+        }
+
+        progress {
+            height: 8px;
         }
 
         embed {
@@ -148,6 +191,19 @@
         </div>
     </section>
     <section class="page" id="p1">
+        <div class="card">
+            <div class="album-art"><img class="art" src="art.jpg" alt="album-art"></div>
+            <div class="controls">
+                <button id="prev">PREV</button>
+                <button id="play">PLAY</button>
+                <button id="next">NEXT</button>
+            </div>
+            <div class="song-info">
+                <span id="song-name">MUTE</span>
+                <progress max="100"></progress>
+                <span id="duration">0:00</span>
+            </div>
+        </div>
         <div class="container">
             <div class="lyric-con" id="con1">
                 <span class="soon" id="s1">Some kill, some steal, <br>
@@ -169,7 +225,7 @@
         </div>
     </section>
     <script>
-
+        // initial stop music
         //AutoScroll & Audio Functions Here
         var audio = document.getElementById("audio");
         var isPlaying = false;
@@ -195,8 +251,7 @@
                     if (audio.currentTime >= sectionTimes[currentSectionIndex]) {
                         lyricCon.scrollTop = lyriclen;
                         lyriclen += 200;
-                        /* dont whats this number, my code waasnt warking good it scrolls to end initally,
-                         so i thought putting some numbers that basically maths saved me : )*/
+
                         currentSectionIndex++;
                     }
                     if (audio.currentTime > sectionTimes[4]) {
@@ -206,6 +261,11 @@
                     }
                 }
                 );
+            }
+            else {
+                audio.pause();
+                isPlaying = false;
+                console.log("Song is paused");
             }
         }
 
