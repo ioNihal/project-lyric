@@ -97,16 +97,28 @@
         }
 
         .card {
+            margin-left: 50px;
             width: 300px;
             height: 400px;
             background-color: black;
             border-radius: 20px;
+            box-shadow: -3px 5px 5px 1px #030303c2;
         }
 
         .album-art {
             width: 100%;
             height: 74%;
-            background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), black);
+            position: relative;
+        }
+
+        .overlay {
+            height: 100%;
+            width: 100%;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: linear-gradient(to top, black, transparent);
         }
 
         .art {
@@ -120,7 +132,7 @@
             display: flex;
             align-items: center;
             justify-content: space-around;
-            height: 50px;
+            height: 40px;
         }
 
         .controls button {
@@ -131,10 +143,22 @@
             border-radius: 3px;
             font-family: 'Fira Code';
             cursor: pointer;
+            text-align: center;
+            
         }
 
-        #splay {
-            font-size: larger;
+        #play {
+            border-radius: 50px;
+            padding: 8px;
+            padding-left: 11px;
+        }
+
+        #play img {
+            height: 20px;
+            width: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
         }
 
         .song-info {
@@ -160,21 +184,18 @@
 
         #landing {
             background: rgb(5, 1, 74);
-            background: linear-gradient(180deg, rgba(5, 1, 74, 1) 0%, rgb(0, 4, 15) 100%);
+            background: linear-gradient(180deg, rgba(5, 1, 74, 1) 0%, rgb(0, 8, 29) 100%);
         }
 
-        #p1,
-        #p3,
-        #p5 {
+        #p1 {
             background: rgb(0, 0, 0);
-            background: linear-gradient(180deg, rgb(0, 4, 15) 0%, rgba(5, 1, 74, 1) 100%);
+            background: linear-gradient(180deg, rgb(0, 8, 29) 0%, rgba(5, 1, 74, 1) 100%);
         }
 
-        #p2,
-        #p4,
+
         #pend {
             background: rgb(5, 1, 74);
-            background: linear-gradient(180deg, rgba(5, 1, 74, 1) 0%, rgb(0, 4, 15) 100%);
+            background: linear-gradient(180deg, rgba(5, 1, 74, 1) 0%, rgb(0, 8, 29) 100%);
         }
     </style>
 </head>
@@ -192,16 +213,19 @@
     </section>
     <section class="page" id="p1">
         <div class="card">
-            <div class="album-art"><img class="art" src="art.jpg" alt="album-art"></div>
-            <div class="controls">
-                <button id="prev">PREV</button>
-                <button id="play">PLAY</button>
-                <button id="next">NEXT</button>
+            <div class="album-art">
+                <div class="overlay"></div>
+                <img class="art" src="art.jpg" alt="album-art">
             </div>
             <div class="song-info">
                 <span id="song-name">MUTE</span>
-                <progress max="100"></progress>
+                <progress value="0" max="30" id="seektime"></progress>
                 <span id="duration">0:00</span>
+            </div>
+            <div class="controls">
+                <button id="prev">PREV</button>
+                <button id="play" onclick="startPlaying()"><img src="play.png" alt="playpng"></button>
+                <button id="next">NEXT</button>
             </div>
         </div>
         <div class="container">
@@ -226,6 +250,11 @@
     </section>
     <script>
         // initial stop music
+        window.onload = (event) => {
+            console.log("Page Loaded, Initially stop music");
+            audio.pause();
+        }
+
         //AutoScroll & Audio Functions Here
         var audio = document.getElementById("audio");
         var isPlaying = false;
@@ -240,14 +269,20 @@
                 });
                 audio.currentTime = 68.9;
                 audio.play();
-                console.log("SongPlaying");
+                console.log("SongPlaying " + audio.duration + " & " + audio.currentTime + " and ");
                 isPlaying = true;
 
                 const sectionTimes = [71.9, 74.9, 78.9, 84.4, 104.4];
-
+                const progressBar = document.getElementById('seektime');
                 let currentSectionIndex = 0;
                 var lyriclen = 200;
+                var sdur = audio.duration;
                 audio.addEventListener('timeupdate', () => {
+                    
+                    const progressValue = (audio.currentTime / sdur) * 100;
+                    console.log("Progress Val : " + progressValue);
+                    progressBar.value = progressValue - 56;
+                    console.log("ProgressBAr Val : " + progressBar.value);
                     if (audio.currentTime >= sectionTimes[currentSectionIndex]) {
                         lyricCon.scrollTop = lyriclen;
                         lyriclen += 200;
