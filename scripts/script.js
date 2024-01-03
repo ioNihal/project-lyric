@@ -75,6 +75,7 @@ function startPlaying() {
         clearInterval(durId);
         seektimer = 0;
         duration.innerHTML = "0:00";
+        lyricCon.scrollTop = 0;
     }
 }
 
