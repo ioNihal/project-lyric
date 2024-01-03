@@ -8,7 +8,7 @@ html {
 
 body {
     margin: 0;
-    padding: o;
+    padding: 0;
     height: 100vh;
 }
 
@@ -21,7 +21,10 @@ body {
 }
 
 .container {
-
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 0;
+    grid-row-start: 1;
     max-height: 200px;
     height: 200px;
     width: 650px;
@@ -87,7 +90,11 @@ body {
 }
 
 .card {
-    margin-left: 50px;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 0;
+    grid-row-start: 1;
+    margin-left: 30%;
     width: 300px;
     height: 400px;
     background-color: black;
@@ -178,6 +185,10 @@ embed {
 }
 
 #p1 {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100% 0%;
+
     background: rgb(0, 0, 0);
     background: linear-gradient(180deg, rgb(0, 8, 29) 0%, rgba(5, 1, 74, 1) 100%);
 }
@@ -186,4 +197,119 @@ embed {
 #pend {
     background: rgb(5, 1, 74);
     background: linear-gradient(180deg, rgba(5, 1, 74, 1) 0%, rgb(0, 8, 29) 100%);
+}
+
+
+
+@media screen and (max-width: 600px) {
+
+    .page {
+        width: 100%;
+        height: 100%;
+    }
+
+    .pimage {
+        width: 5em;
+        height: 5em;
+    }
+
+    #p1 {
+
+        grid-template-columns: 100% 0%;
+        grid-template-rows: 60% 40%;
+    }
+
+    .soon.active {
+        font-size: 22px;
+    }
+
+    @keyframes focus-in-contract {
+        0% {
+            letter-spacing: 1em;
+            -webkit-filter: blur(12px);
+            filter: blur(12px);
+            opacity: 0;
+            font-size: 1.1rem;
+        }
+
+        100% {
+            -webkit-filter: blur(0.5px);
+            filter: blur(0.5px);
+            opacity: 1;
+            font-size: 22px;
+        }
+    }
+
+    .card {
+        grid-row-start: 1;
+        grid-row-end: 2;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        margin: 40px 10% 0 10%;
+        width: 80%;
+        height: 90%;
+    }
+
+    .album-art {
+        width: 100%;
+        height: 75%;
+
+    }
+
+    .overlay {
+        height: 100%;
+        width: 100%;
+    }
+
+    .art {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .controls {
+        height: 15%;
+    }
+
+    #play {
+        border-radius: 50px;
+        padding: 5px;
+        padding-left: 8px;
+    }
+
+    #play img {
+        height: 15px;
+        width: 15px;
+    }
+
+    .song-info {
+        height: 10%;
+    }
+
+    progress {
+        height: 5px;
+    }
+
+    .container {
+        grid-row-start: 2;
+        grid-row-end: 3;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        width: 90%;
+        height: 200px;
+        max-height: 200px;
+        overflow-y: scroll;
+        margin: 15px 5% 5px 5%;
+    }
+
+    .lyric-con {
+        height: 200px;
+        width: 315px;
+        padding: 0 0 0 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+
 }
