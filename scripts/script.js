@@ -16,7 +16,7 @@ var duration = document.getElementById('duration');
 var seektimer = 0;
 var durId;
 
-function timer() {
+/*function timer() {
     seektimer += 1;
     // debug mode :: console.log(seektimer);
     if (seektimer >= 10) {
@@ -24,7 +24,7 @@ function timer() {
     }
     else
         duration.innerHTML = "0:0" + seektimer;
-}
+}*/
 
 function startPlaying() {
     if (audio.paused) {
@@ -33,7 +33,7 @@ function startPlaying() {
         });
         audio.currentTime = 68.9;
         audio.play();
-        durId = setInterval(timer, 1000);
+        //durId = setInterval(timer, 1000);
         // debug for progress bar ::console.log("SongPlaying " + audio.duration + " & " + audio.currentTime + " and ");
         isPlaying = true;
         const sectionTimes = [71.9, 74.9, 78.9, 84.4, 104.4];
@@ -43,6 +43,12 @@ function startPlaying() {
         var sdur = audio.duration;
 
         audio.addEventListener('timeupdate', () => {
+            if (audio.currentTime >= 78) {
+                duration.innerHTML = "0:" + (Math.floor(audio.currentTime) - 68);
+            }
+            else
+                duration.innerHTML = "0:0" + (Math.floor(audio.currentTime) - 68);
+
             let progressValue = (audio.currentTime / sdur) * 100;
             //for debug mode :: console.log("Progress Val : " + progressValue);
             progressBar.value = progressValue - 56;
@@ -92,3 +98,5 @@ const elements = document.querySelectorAll('.soon');
 elements.forEach(function (element) {
     observer.observe(element);
 });
+
+
