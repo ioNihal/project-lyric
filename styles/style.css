@@ -177,7 +177,7 @@ body {
     -webkit-user-select: none;
     user-select: none;
     -webkit-user-drag: none;
-    filter: invert(70%)
+    filter: invert(70%);
 -webkit-tap-highlight-color: transparent;
 }
 
