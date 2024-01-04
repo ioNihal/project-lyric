@@ -44,14 +44,9 @@ body {
 -webkit-user-select: none;
     user-select: none;
     -webkit-user-drag: none;
+-webkit-tap-highlight-color: transparent;
 
 }
-
-span.mainplayimg {
--webkit-user-select: none;
-    user-select: none;
-    -webkit-user-drag: none;
-} 
 
 .pimage {
     width: 10em;
@@ -59,6 +54,7 @@ span.mainplayimg {
     -webkit-user-select: none;
     user-select: none;
     -webkit-user-drag: none;
+-webkit-tap-highlight-color: transparent;
 }
 
 .lyric-con {
@@ -146,7 +142,7 @@ span.mainplayimg {
     height: 40px;
 }
 
-span.ctrlbtn {
+.controls button{
     background-color: rgba(37, 37, 37, 0.596);
     color: white;
     border: none;
@@ -158,6 +154,7 @@ span.ctrlbtn {
 -webkit-user-select: none;
     user-select: none;
     -webkit-user-drag: none;
+-webkit-tap-highlight-color: transparent;
 
 }
 
@@ -168,6 +165,7 @@ span.ctrlbtn {
 -webkit-user-select: none;
     user-select: none;
     -webkit-user-drag: none;
+-webkit-tap-highlight-color: transparent;
 }
 
 #play img {
@@ -180,6 +178,7 @@ span.ctrlbtn {
     user-select: none;
     -webkit-user-drag: none;
     filter: invert(70%)
+-webkit-tap-highlight-color: transparent;
 }
 
 .song-info {
