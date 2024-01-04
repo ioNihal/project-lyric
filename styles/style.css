@@ -9,7 +9,7 @@ html {
 body {
     margin: 0;
     padding: 0;
-    height: 100vh;
+    height: 100dvh;
 }
 
 .page {
@@ -285,8 +285,8 @@ embed {
     }
 
     #play img {
-        height: 15px;
-        width: 15px;
+        height: 25px;
+        width: 25px;
     }
 
     .song-info {
@@ -302,11 +302,11 @@ embed {
         grid-row-end: 3;
         grid-column-start: 1;
         grid-column-end: 2;
-        width: 90%;
+        width: 80%;
         height: 200px;
         max-height: 200px;
         overflow-y: scroll;
-        margin: 15px 5% 5px 5%;
+        margin: 15px 10% 5px 10%;
     }
 
     .lyric-con {
