@@ -2,6 +2,9 @@
 window.onload = (event) => {
     console.log("Page Loaded, Initially stop music");
     audio.pause();
+    audio.muted = false;
+    console.log(' initially unmute');
+
 }
 
 //AutoScroll & Audio Functions Here
@@ -18,14 +21,27 @@ var durId;
 
 var mainbtn = document.getElementById('button');
 var cardbtn = document.getElementById('play');
-mainbtn.addEventListener('click',() => {
+mainbtn.addEventListener('click', () => {
     console.log("clicked image");
     startPlaying();
 });
-cardbtn.addEventListener('click',() => {
+cardbtn.addEventListener('click', () => {
     console.log("clicked icon");
     startPlaying();
 });
+
+var mutebtn = document.getElementById('mute');
+mutebtn.addEventListener('click', () => {
+    if (audio.muted == true) {
+        audio.muted = false;
+        console.log('unmute');
+    }
+    else {
+        audio.muted = true;
+        console.log('mute');
+    }
+});
+
 function startPlaying() {
     if (audio.paused) {
         sections[1].scrollIntoView({
