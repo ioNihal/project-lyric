@@ -149,6 +149,9 @@ span.ctrlbtn {
     font-family: 'Fira Code';
     cursor: pointer;
     text-align: center;
+-webkit-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
 
 }
 
