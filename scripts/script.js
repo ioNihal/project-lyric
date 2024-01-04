@@ -16,7 +16,16 @@ var duration = document.getElementById('duration');
 var seektimer = 0;
 var durId;
 
-
+var mainbtn = document.getElementById('button');
+var cardbtn = document.getElementById('play');
+mainbtn.addEventListener('click',() => {
+    console.log("clicked image");
+    startPlaying();
+});
+cardbtn.addEventListener('click',() => {
+    console.log("clicked icon");
+    startPlaying();
+});
 function startPlaying() {
     if (audio.paused) {
         sections[1].scrollIntoView({

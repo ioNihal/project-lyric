@@ -40,11 +40,15 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    
 }
 
 .pimage {
     width: 10em;
     height: 10em;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 .lyric-con {
@@ -156,6 +160,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 .song-info {
