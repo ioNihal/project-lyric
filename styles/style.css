@@ -164,6 +164,7 @@ body {
     -webkit-user-select: none;
     user-select: none;
     -webkit-user-drag: none;
+    filter: invert(70%)
 }
 
 .song-info {
@@ -328,7 +329,7 @@ embed {
         height: 200px;
         max-height: 200px;
         overflow-y: scroll;
-        margin: 15px 10% 5px 10%;
+        margin: 15px 0 5px 10%;
     }
 
     .lyric-con {
