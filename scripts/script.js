@@ -30,6 +30,10 @@ cardbtn.addEventListener('click', () => {
     startPlaying();
 });
 
+document.querySelector('.muteUnmuteButton').addEventListener('click', function () {
+    this.classList.toggle('mute');
+});
+
 var mutebtn = document.getElementById('mute');
 mutebtn.addEventListener('click', () => {
     if (audio.muted == true) {
