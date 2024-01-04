@@ -47,6 +47,12 @@ body {
 
 }
 
+span.mainplayimg {
+-webkit-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+} 
+
 .pimage {
     width: 10em;
     height: 10em;
