@@ -16,15 +16,6 @@ var duration = document.getElementById('duration');
 var seektimer = 0;
 var durId;
 
-/*function timer() {
-    seektimer += 1;
-    // debug mode :: console.log(seektimer);
-    if (seektimer >= 10) {
-        duration.innerHTML = "0:" + seektimer;
-    }
-    else
-        duration.innerHTML = "0:0" + seektimer;
-}*/
 
 function startPlaying() {
     if (audio.paused) {
