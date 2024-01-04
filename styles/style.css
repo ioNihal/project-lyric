@@ -140,7 +140,7 @@ body {
     height: 40px;
 }
 
-.controls span {
+.controls span.ctrlbtn {
     background-color: rgba(37, 37, 37, 0.596);
     color: white;
     border: none;
