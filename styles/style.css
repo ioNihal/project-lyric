@@ -18,7 +18,7 @@ body {
     justify-content: space-around;
     width: 100%;
     height: 100%;
-    overflow-x:hidden;
+    overflow-x: hidden;
 }
 
 .container {
@@ -41,10 +41,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-around;
--webkit-user-select: none;
+    -webkit-user-select: none;
     user-select: none;
     -webkit-user-drag: none;
--webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent;
 
 }
 
@@ -54,7 +54,7 @@ body {
     -webkit-user-select: none;
     user-select: none;
     -webkit-user-drag: none;
--webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .lyric-con {
@@ -142,7 +142,7 @@ body {
     height: 40px;
 }
 
-.controls button{
+.controls button {
     background-color: rgba(37, 37, 37, 0.596);
     color: white;
     border: none;
@@ -151,10 +151,10 @@ body {
     font-family: 'Fira Code';
     cursor: pointer;
     text-align: center;
--webkit-user-select: none;
+    -webkit-user-select: none;
     user-select: none;
     -webkit-user-drag: none;
--webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent;
 
 }
 
@@ -162,10 +162,11 @@ body {
     border-radius: 50px;
     padding: 8px;
     padding-left: 11px;
--webkit-user-select: none;
+    -webkit-user-select: none;
     user-select: none;
     -webkit-user-drag: none;
--webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent;
+    
 }
 
 #play img {
@@ -178,7 +179,7 @@ body {
     user-select: none;
     -webkit-user-drag: none;
     filter: invert(70%);
--webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .song-info {
