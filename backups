@@ -244,7 +244,7 @@ old scrolltosection code:
         */
 
         old pages:
-        /* 
+        <!-- 
         <div class="lyrics">
                 <span class="soon" id="s1" onclick="">Some kill, some steal, <br>
                     some break your heart</span>
@@ -280,4 +280,18 @@ old scrolltosection code:
             <div class="lyrics">
                 <span class="soon" id="s5" onclick="">In my grave, I'll rot...</span>
             </div>
-        </div> */
+        </div> -->
+
+
+
+
+        <!--<img alt="playbutton" class="pimage" src="images/playicon.png" id="button">
+        .pimage {
+            width: 10em;
+            height: 10em;
+            -webkit-user-select: none;
+            user-select: none;
+            -webkit-user-drag: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        -->

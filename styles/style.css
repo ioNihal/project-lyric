@@ -36,8 +36,8 @@ body {
 
 .play {
     cursor: pointer;
-    width: 13em;
-    height: 13em;
+    width: 80%;
+    height: 80%;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -48,13 +48,43 @@ body {
 
 }
 
-.pimage {
-    width: 10em;
-    height: 10em;
-    -webkit-user-select: none;
-    user-select: none;
-    -webkit-user-drag: none;
-    -webkit-tap-highlight-color: transparent;
+.song-card {
+    display: block;
+    height: 65%;
+    width: 75%;
+    background-color: black;
+    margin: 45px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.song-card-overlay {
+    height: 100%;
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to top, black, transparent);
+    
+}
+
+.song-card-img {
+    height: 85%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    
+}
+
+.song-card-title {
+    color: white;
+    font-family: 'Fira Code';
+    
+    text-align: center;
+    display: block;
+    padding: 10px;
+    background-color: black;
 }
 
 .lyric-con {
@@ -118,7 +148,7 @@ body {
     position: relative;
 }
 
-.overlay {
+.album-art-overlay {
     height: 100%;
     width: 100%;
     display: block;
@@ -166,7 +196,7 @@ body {
     user-select: none;
     -webkit-user-drag: none;
     -webkit-tap-highlight-color: transparent;
-    
+
 }
 
 #play img {

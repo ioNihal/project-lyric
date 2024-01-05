@@ -19,10 +19,26 @@ var duration = document.getElementById('duration');
 var seektimer = 0;
 var durId;
 
-var mainbtn = document.getElementById('button');
+//var mainbtn = document.getElementById('button');
+var song1 = document.getElementById('song1');
+var song2 = document.getElementById('song2');
+var song3 = document.getElementById('song3');
 var cardbtn = document.getElementById('play');
-mainbtn.addEventListener('click', () => {
+
+/*mainbtn.addEventListener('click', () => {
     console.log("clicked image");
+    startPlaying();
+});*/
+song1.addEventListener('click', () => {
+    console.log("clicked song1");
+    startPlaying();
+});
+song2.addEventListener('click', () => {
+    console.log("clicked song2");
+    startPlaying();
+});
+song3.addEventListener('click', () => {
+    console.log("clickd  song3");
     startPlaying();
 });
 cardbtn.addEventListener('click', () => {
@@ -35,16 +51,16 @@ document.querySelector('.muteUnmuteButton').addEventListener('click', function (
 });
 
 var mutebtn = document.getElementById('mute');
-mutebtn.addEventListener('click', () => {
-    if (audio.muted == true) {
-        audio.muted = false;
-        console.log('unmute');
-    }
-    else {
-        audio.muted = true;
-        console.log('mute');
-    }
-});
+mutebtn.addEventListener('click', function () {
+        if (audio.muted == true) {
+            audio.muted = false;
+            console.log('unmute');
+        }
+        else {
+            audio.muted = true;
+            console.log('mute');
+        }
+    });
 
 function startPlaying() {
     if (audio.paused) {
