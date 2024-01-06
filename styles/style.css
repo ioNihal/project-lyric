@@ -21,6 +21,12 @@ body {
     overflow-x: hidden;
 }
 
+#landing {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 20% 60% 20%;
+}
+
 .container {
     grid-column-start: 2;
     grid-column-end: 3;
@@ -34,9 +40,22 @@ body {
 
 }
 
-.play {
+.songs-desc {
+    color: white;
+    text-align: center;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.songs-option {
+    grid-row-start: 2;
+    grid-row-end: 3;
     cursor: pointer;
-    width: 80%;
+    width: 100%;
+    max-height: 600px;
     height: 80%;
     display: flex;
     flex-wrap: nowrap;
@@ -50,9 +69,10 @@ body {
 
 }
 
+
 .song-card {
     display: block;
-    height: 65%;
+    height: 95%;
     width: 75%;
     min-width: 250px;
     background-color: black;
@@ -101,6 +121,23 @@ body {
     display: block;
     padding: 10px;
     background-color: black;
+}
+
+.songs-arrow-icon {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.songs-arrow-icon img {
+    height: 50px;
+    width: 60px;
+    background-color: antiquewhite;
 }
 
 .lyric-con {
@@ -299,9 +336,9 @@ embed {
         height: 100%;
     }
 
-    .play {
+    .songs-option {
         width: 100%;
-        height: 100%;
+        height: 60%;
         align-items: center;
         justify-content: space-around;
         flex-wrap: nowrap;
@@ -309,9 +346,33 @@ embed {
     }
 
     .song-card {
-        height: 20%;
+        height: 5rem;
         width: 40%;
         min-width: 170px;
+        box-shadow: -3px 5px 5px 1px #030303c2;
+        display: flex;
+        flex-direction: row-reverse;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+    }
+
+    .song-card-img {
+        height: 100%;
+        width: 40%;
+    }
+
+    .song-card-overlay {
+        height: 100%;
+        width: 40%;
+        left: 60%;
+        background-image: linear-gradient(to right, black, transparent);
+
+    }
+
+    .song-card-title {
+        height: 100%;
+        width: 60%;
+        padding: 0;
     }
 
     #song1 {
