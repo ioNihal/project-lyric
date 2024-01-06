@@ -56,7 +56,7 @@ body {
     width: 75%;
     min-width: 250px;
     background-color: black;
-
+    box-shadow: -3px 5px 5px 1px #030303c2;
     border-radius: 10px;
     position: relative;
 }
@@ -96,7 +96,7 @@ body {
 .song-card-title {
     color: white;
     font-family: 'Fira Code';
-
+    border-radius: 10px;
     text-align: center;
     display: block;
     padding: 10px;
