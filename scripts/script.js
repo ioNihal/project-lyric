@@ -16,11 +16,14 @@ var lyricSections = document.querySelectorAll('.lyric-con');
 var lyricCon = document.querySelector('.container');
 var sectionTimes = [];
 
+var albumArt = document.getElementById('albumArt');
+
 var s1 = document.getElementById('s1');
 var s2 = document.getElementById('s2');
 var s3 = document.getElementById('s3');
 var s4 = document.getElementById('s4');
 var s5 = document.getElementById('s5');
+var s6 = document.getElementById('s6');
 
 var duration = document.getElementById('duration');
 var seektimer = 0;
@@ -73,6 +76,9 @@ mutebtn.addEventListener('click', function () {
 function playRevenge() {
     audio.src = 'songs/revenge.mp3';
     console.log("Song set to Revenge.mp3");
+    albumArt.src = 'images/songicon1.jpeg';
+    console.log("Album art changed");
+    lyricCon.scrollTop = 0;
     totalDuration = audio.duration;
     sectionTimes = [3, 6, 10, 15.5, 35.5];
     console.log("Lyrics trigger point set");
@@ -81,6 +87,26 @@ function playRevenge() {
     s3.innerHTML = "Well, broken hearts break bones, <br> so in my grave, I'll rot";
     s4.innerHTML = "And I don't wanna let it go, <br> so in my grave, I'll rot";
     s5.innerHTML = "In my grave, I'll rot...";
+    s6.innerHTML = "  ";
+    console.log("Lyrics Changed");
+    startPlaying();
+}
+
+function playLetHerGo() {
+    audio.src = 'songs/lethergo.mp3';
+    console.log("Song set to lethergo.mp3");
+    albumArt.src = 'images/songicon2.jpeg';
+    console.log("Album art changed");
+    lyricCon.scrollTop = 0;
+    totalDuration = audio.duration;
+    sectionTimes = [3.5, 6.5, 13, 16, 19];
+    console.log("Lyrics trigger point set");
+    s1.innerHTML = "Well, You only need the light <br> when its burning low";
+    s2.innerHTML = "Only miss the sun when it starts to snow";
+    s3.innerHTML = "Only know you love her when you let her go";
+    s4.innerHTML = "Only know you've been high <br> when you're feeling low";
+    s5.innerHTML = "Only hate the road when you're missing home";
+    s6.innerHTML = "Only know you love her when you let her go";
     console.log("Lyrics Changed");
     startPlaying();
 }
