@@ -4,6 +4,7 @@ window.onload = (event) => {
     audio.pause();
     audio.muted = false;
     console.log(' initially unmute');
+    
 
 }
 
@@ -35,6 +36,8 @@ var song1 = document.getElementById('song1');
 var song2 = document.getElementById('song2');
 var song3 = document.getElementById('song3');
 var cardbtn = document.getElementById('play');
+var playicon = document.getElementById('playicon');
+var pauseicon = document.getElementById('pauseicon');
 
 /*mainbtn.addEventListener('click', () => {
     console.log("clicked image");
@@ -80,6 +83,7 @@ function playRevenge() {
     console.log("Album art changed");
     lyricCon.scrollTop = 0;
     totalDuration = audio.duration;
+    audio.currentTime = 0;
     sectionTimes = [3, 6, 10, 15.5, 35.5];
     console.log("Lyrics trigger point set");
     s1.innerHTML = "Some kill, some steal, <br> some break your heart";
@@ -99,9 +103,10 @@ function playLetHerGo() {
     console.log("Album art changed");
     lyricCon.scrollTop = 0;
     totalDuration = audio.duration;
+    audio.currentTime = 0;
     sectionTimes = [3.5, 6.5, 13, 16, 19];
     console.log("Lyrics trigger point set");
-    s1.innerHTML = "Well, You only need the light <br> when its burning low";
+    s1.innerHTML = "Well, You only need the light when its burning low";
     s2.innerHTML = "Only miss the sun when it starts to snow";
     s3.innerHTML = "Only know you love her when you let her go";
     s4.innerHTML = "Only know you've been high <br> when you're feeling low";
@@ -112,21 +117,21 @@ function playLetHerGo() {
 }
 
 
-
 function startPlaying() {
     if (audio.paused) {
+        playicon.classList.add('hideplaypause');
+        pauseicon.classList.remove('hideplaypause');
         sections[1].scrollIntoView({
             behavior: 'smooth'
         });
-        audio.currentTime = 0;
         audio.play();
+
         //durId = setInterval(timer, 1000);
         // debug for progress bar ::console.log("SongPlaying " + audio.duration + " & " + audio.currentTime + " and ");
         isPlaying = true;
         const progressBar = document.getElementById('seektime');
         let currentSectionIndex = 0;
         var lyriclen = 200;
-
 
         audio.addEventListener('timeupdate', () => {
             if (audio.currentTime >= 10) {
@@ -156,12 +161,14 @@ function startPlaying() {
     }
     else {
         audio.pause();
+        pauseicon.classList.add('hideplaypause');
+        playicon.classList.remove('hideplaypause');
         isPlaying = false;
         console.log("Song is paused");
         clearInterval(durId);
         seektimer = 0;
         duration.innerHTML = "0:00";
-        lyricCon.scrollTop = 0;
+
     }
 }
 

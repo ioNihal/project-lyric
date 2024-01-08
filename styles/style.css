@@ -247,15 +247,19 @@ body {
 #play {
     border-radius: 50px;
     padding: 8px;
-    padding-left: 11px;
+    
+    height: 40px;
+    width: 40px;
     -webkit-user-select: none;
     user-select: none;
     -webkit-user-drag: none;
     -webkit-tap-highlight-color: transparent;
+    position: relative;
 
 }
 
-#play img {
+.playpauseicon img {
+    object-fit: cover;
     height: 20px;
     width: 20px;
     display: flex;
@@ -266,7 +270,18 @@ body {
     -webkit-user-drag: none;
     filter: invert(70%);
     -webkit-tap-highlight-color: transparent;
+    transition: transform 0.5s ease-in-out;
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }
+
+.hideplaypause {
+    opacity: 0;
+    transform: rotateZ(90deg)
+}
+
+
 
 .song-info {
     display: flex;
@@ -453,13 +468,13 @@ embed {
         height: 15%;
     }
 
-    #play {
+    .playpauseicon {
         border-radius: 50px;
         padding: 7px;
         padding-left: 12px;
     }
 
-    #play img {
+    .playpauseicon img {
         height: 25px;
         width: 25px;
     }
