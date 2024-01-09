@@ -42,6 +42,8 @@ var prevSong;
 var cardPlayBtn = document.getElementById('play');
 var playicon = document.getElementById('playicon');
 var pauseicon = document.getElementById('pauseicon');
+var muteicon = document.querySelector('.muteicon');
+var unmuteicon = document.querySelector('.unmuteicon');
 var nextBtn = document.getElementById('next');
 var prevBtn = document.getElementById('prev');
 const songs = [revenge, lethergo, nosong];
@@ -98,19 +100,20 @@ prevBtn.addEventListener('click', () => {
 
 });
 
-document.querySelector('.muteUnmuteButton').addEventListener('click', function () {
-    this.classList.toggle('hidemuteunmute');
-});
-
 var mutebtn = document.getElementById('mute');
 mutebtn.addEventListener('click', function () {
     if (audio.muted == true) {
         audio.muted = false;
+muteicon.classList.remove('hidemuteunmute');
+        unmuteicon.classList.add('hidemuteunmute');
         console.log('unmute');
     }
     else {
         audio.muted = true;
+unmuteicon.classList.remove('hidemuteunmute');
+        muteicon.classList.add('hidemuteunmute');
         console.log('mute');
+        
     }
 });
 
