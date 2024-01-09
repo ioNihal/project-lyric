@@ -314,12 +314,8 @@ body {
     transition: opacity 0.3s ease-in-out;
 }
 
-.muteUnmuteButton.mute .muteIcon {
+.hidemuteunmute {
     opacity: 0;
-}
-
-.playPauseButton.mute .unmuteIcon {
-    opacity: 1;
 }
 
 progress {
