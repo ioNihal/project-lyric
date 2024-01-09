@@ -4,8 +4,6 @@ window.onload = (event) => {
     audio.pause();
     audio.muted = false;
     console.log(' initially unmute');
-
-
 }
 
 //AutoScroll & Audio Functions Here
@@ -35,9 +33,19 @@ var totalDuration = 0;
 var song1 = document.getElementById('song1');
 var song2 = document.getElementById('song2');
 var song3 = document.getElementById('song3');
-var cardbtn = document.getElementById('play');
+var revenge = 'songs/revenge.mp3';
+var lethergo = 'songs/lethergo.mp3';
+var nosong = 'songs/novococaine.mp3';
+var nextSong;
+var prevSong;
+
+var cardPlayBtn = document.getElementById('play');
 var playicon = document.getElementById('playicon');
 var pauseicon = document.getElementById('pauseicon');
+var nextBtn = document.getElementById('next');
+var prevBtn = document.getElementById('prev');
+const songs = [revenge, lethergo, nosong];
+
 
 /*mainbtn.addEventListener('click', () => {
     console.log("clicked image");
@@ -55,9 +63,39 @@ song3.addEventListener('click', () => {
     console.log("clickd  song3");
     playNoSong();
 });
-cardbtn.addEventListener('click', () => {
+cardPlayBtn.addEventListener('click', () => {
     console.log("clicked icon");
     startPlaying();
+});
+nextBtn.addEventListener('click', () => {
+    console.log("clickd  next");
+    if (nextSong == revenge) {
+        playRevenge();
+    }
+    else if (nextSong == lethergo) {
+        playLetHerGo();
+    }
+    else if (nextSong == nosong) {
+        console.log('No song');
+    }
+    else
+        console.log('Error');
+});
+
+prevBtn.addEventListener('click', () => {
+    console.log("clickd  prev");
+    if (prevSong == revenge) {
+        playRevenge();
+    }
+    else if (prevSong == lethergo) {
+        playLetHerGo();
+    }
+    else if (prevSong == nosong) {
+        console.log('No song');
+    }
+    else
+        console.log('Error');
+
 });
 
 document.querySelector('.muteUnmuteButton').addEventListener('click', function () {
@@ -77,8 +115,10 @@ mutebtn.addEventListener('click', function () {
 });
 
 function playRevenge() {
-    audio.src = 'songs/revenge.mp3';
+    audio.src = revenge;
     console.log("Song set to Revenge.mp3");
+    nextSong = songs[1];
+    prevSong = songs[2];
     albumArt.src = 'images/songicon1.jpeg';
     console.log("Album art changed");
     lyricCon.scrollTop = 0;
@@ -97,8 +137,10 @@ function playRevenge() {
 }
 
 function playLetHerGo() {
-    audio.src = 'songs/lethergo.mp3';
+    audio.src = lethergo;
     console.log("Song set to lethergo.mp3");
+    nextSong = songs[2];
+    prevSong = songs[0];
     albumArt.src = 'images/songicon2.jpeg';
     console.log("Album art changed");
     lyricCon.scrollTop = 0;
