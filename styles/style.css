@@ -302,7 +302,7 @@ body {
     position: relative;
 }
 
-.muteUnmuteIcon img {
+.muteUnmuteButton img {
     position: absolute;
     top: 0;
     left: 10px;
