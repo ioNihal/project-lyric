@@ -104,14 +104,14 @@ var mutebtn = document.getElementById('mute');
 mutebtn.addEventListener('click', function () {
     if (audio.muted == true) {
         audio.muted = false;
-muteicon.classList.remove('hidemuteunmute');
-        unmuteicon.classList.add('hidemuteunmute');
+unmuteicon.classList.remove('hidemuteunmute');
+        muteicon.classList.add('hidemuteunmute');
         console.log('unmute');
     }
     else {
         audio.muted = true;
-unmuteicon.classList.remove('hidemuteunmute');
-        muteicon.classList.add('hidemuteunmute');
+muteicon.classList.remove('hidemuteunmute');
+        unmuteicon.classList.add('hidemuteunmute');
         console.log('mute');
         
     }
