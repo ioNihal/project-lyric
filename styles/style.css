@@ -302,8 +302,7 @@ body {
     position: relative;
 }
 
-.muteIcon,
-.unmuteIcon {
+.muteUnmuteIcon img {
     position: absolute;
     top: 0;
     left: 10px;
