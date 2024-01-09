@@ -99,7 +99,7 @@ prevBtn.addEventListener('click', () => {
 });
 
 document.querySelector('.muteUnmuteButton').addEventListener('click', function () {
-    this.classList.toggle('mute');
+    this.classList.toggle('hidemuteunmute');
 });
 
 var mutebtn = document.getElementById('mute');
