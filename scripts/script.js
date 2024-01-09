@@ -35,7 +35,7 @@ var song2 = document.getElementById('song2');
 var song3 = document.getElementById('song3');
 var revenge = 'songs/revenge.mp3';
 var lethergo = 'songs/lethergo.mp3';
-var nosong = 'songs/novococaine.mp3';
+var rickroll = 'songs/rickroll.mp3';
 var nextSong;
 var prevSong;
 
@@ -46,7 +46,7 @@ var muteicon = document.getElementById('muteic');
 var unmuteicon = document.getElementById('unmuteic');
 var nextBtn = document.getElementById('next');
 var prevBtn = document.getElementById('prev');
-const songs = [revenge, lethergo, nosong];
+const songs = [revenge, lethergo, rickroll];
 
 
 /*mainbtn.addEventListener('click', () => {
@@ -63,7 +63,7 @@ song2.addEventListener('click', () => {
 });
 song3.addEventListener('click', () => {
     console.log("clickd  song3");
-    playNoSong();
+    playRickROll();
 });
 cardPlayBtn.addEventListener('click', () => {
     console.log("clicked icon");
@@ -77,8 +77,8 @@ nextBtn.addEventListener('click', () => {
     else if (nextSong == lethergo) {
         playLetHerGo();
     }
-    else if (nextSong == nosong) {
-        console.log('No song');
+    else if (nextSong == rickroll) {
+        playRickROll();
     }
     else
         console.log('Error');
@@ -92,8 +92,8 @@ prevBtn.addEventListener('click', () => {
     else if (prevSong == lethergo) {
         playLetHerGo();
     }
-    else if (prevSong == nosong) {
-        console.log('No song');
+    else if (prevSong == rickroll) {
+        playRickROll();
     }
     else
         console.log('Error');
@@ -104,16 +104,16 @@ var mutebtn = document.getElementById('mute');
 mutebtn.addEventListener('click', function () {
     if (audio.muted == true) {
         audio.muted = false;
-unmuteicon.classList.remove('hidemuteunmute');
+        unmuteicon.classList.remove('hidemuteunmute');
         muteicon.classList.add('hidemuteunmute');
         console.log('unmute');
     }
     else {
         audio.muted = true;
-muteicon.classList.remove('hidemuteunmute');
+        muteicon.classList.remove('hidemuteunmute');
         unmuteicon.classList.add('hidemuteunmute');
         console.log('mute');
-        
+
     }
 });
 
@@ -161,6 +161,30 @@ function playLetHerGo() {
     startPlaying();
 }
 
+function playRickROll() {
+    audio.src = rickroll;
+    console.log("Song set to rickroll.mp3");
+    nextSong = songs[0];
+    prevSong = songs[1];
+    albumArt.src = 'images/songicon3.jpeg';
+    console.log("Album art changed");
+    lyricCon.scrollTop = 0;
+    totalDuration = audio.duration;
+    audio.currentTime = 0;
+    sectionTimes = [2, 4, 8, 10, 13, 17, 19, 21, 25, 27, 30, 35];
+    console.log("Lyrics trigger point set");
+    s1.innerHTML = "Never gonna give you up...";
+    s2.innerHTML = "Never gonna let you down... ";
+    s3.innerHTML = "Never gonna run around, <br> And desert you...";
+    s4.innerHTML = "Never gonna make you cry...";
+    s5.innerHTML = "Never gonna say goodbye..";
+    s6.innerHTML = "Never gonna tell a lie, <br> And hurt you...";
+    
+    console.log("Lyrics Changed");
+    startPlaying();
+}
+
+
 
 function startPlaying() {
     if (audio.paused) {
@@ -189,10 +213,16 @@ function startPlaying() {
             //for debug mode :: console.log("Progress Val : " + progressValue);
             progressBar.value = progressValue;
             //for debug mode :: console.log("ProgressBAr Val : " + progressBar.value);
+
             if (audio.currentTime >= sectionTimes[currentSectionIndex]) {
+                if (currentSectionIndex == 5) {
+                    lyriclen = 0;
+                    console.log('reset');
+                }
                 lyricCon.scrollTop = lyriclen;
                 lyriclen += 200;
                 currentSectionIndex++;
+
             }
             if ((audio.duration - audio.currentTime) == 0) {
                 clearInterval(durId);
