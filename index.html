@@ -4,14 +4,46 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=JetBrains Mono">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rubik+Mono+One&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
     <title>Lyrics Project</title>
 </head>
 
 <body>
     <section class="page" id="landing">
+        <div class="landing-section">
+            <h1 class="title">Project Lyrics</h1>
+            <h2 class="subtitle">The Ultimate Music Experience</h2>
+            <ul class="features">
+                <li>
+                    <i class="fas fa-music"></i>
+                    <p>Explore different genres of music and discover new songs that match your mood and taste</p>
+                </li>
+                <li>
+                    <i class="fas fa-headphones"></i>
+                    <p>Listen to short snippets of songs and pick the one that appeals to you the most</p>
+                </li>
+                <li>
+                    <i class="fas fa-microphone"></i>
+                    <p>Watch the lyrics of the song appear on the screen in sync with the music and sing along with ease
+                    </p>
+                </li>
+                <li>
+                    <i class="fas fa-sliders-h"></i>
+                    <p>Control the music player with simple gestures and adjust the volume, speed, and pitch of the song
+                    </p>
+                </li>
+            </ul>
+            <button class="download-button">Get Started</button>
+        </div>
+    </section>
+    <section class="page" id="home">
         <div class="songs-desc">CHOOSE ONE SONG TO PLAY</div>
         <div class="songs-option">
             <div class="song-card" id="song1">
@@ -34,7 +66,22 @@
             </audio>
         </div>
         <div class="songs-arrow-icon">
-            <img src="icon.png" alt="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:svgjs="http://svgjs.dev/svgjs" viewBox="0 0 800 800">
+                <g stroke-width="29" stroke="hsl(0, 0%, 97%)" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-dasharray="0 13"
+                    transform="matrix(0.981627183447664,0.1908089953765448,-0.1908089953765448,0.981627183447664,52.67272477155234,-92.97447152968357)">
+                    <path d="M155.5 155.5Q602.5 255.5 644.5 644.5 " marker-end="url(#SvgjsMarker2050)"></path>
+                </g>
+                <defs>
+                    <marker markerWidth="10" markerHeight="10" refX="5" refY="5" viewBox="0 0 10 10" orient="auto"
+                        id="SvgjsMarker2050">
+                        <polyline points="0,5 5,2.5 0,0" fill="none" stroke-width="1.6666666666666667"
+                            stroke="hsl(0, 0%, 97%)" stroke-linecap="round"
+                            transform="matrix(1,0,0,1,1.6666666666666667,2.5)" stroke-linejoin="round"></polyline>
+                    </marker>
+                </defs>
+            </svg>
         </div>
     </section>
     <section class="page" id="p1">
@@ -45,8 +92,8 @@
             </div>
             <div class="song-info">
                 <span id="mute" class="muteUnmuteButton">
-                    <img src="images/unmuteicon.png" alt="unmute" class="" id="unmuteic" >
-                    <img src="images/muteicon.png" alt="mute" class="hidemuteunmute" id="muteic" >
+                    <img src="images/unmuteicon.png" alt="unmute" class="" id="unmuteic">
+                    <img src="images/muteicon.png" alt="mute" class="hidemuteunmute" id="muteic">
                 </span>
                 <progress value="0" max="100" id="seektime"></progress>
                 <span id="duration">0:00</span>

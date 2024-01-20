@@ -4,6 +4,9 @@ window.onload = (event) => {
     audio.pause();
     audio.muted = false;
     console.log(' initially unmute');
+    document.querySelector('.download-button').addEventListener('click', () => {
+        window.location.href = "#home";
+    });
 }
 
 //AutoScroll & Audio Functions Here
@@ -179,7 +182,7 @@ function playRickROll() {
     s4.innerHTML = "Never gonna make you cry...";
     s5.innerHTML = "Never gonna say goodbye..";
     s6.innerHTML = "Never gonna tell a lie, <br> And hurt you...";
-    
+
     console.log("Lyrics Changed");
     startPlaying();
 }
@@ -190,7 +193,7 @@ function startPlaying() {
     if (audio.paused) {
         playicon.classList.add('hideplaypause');
         pauseicon.classList.remove('hideplaypause');
-        sections[1].scrollIntoView({
+        sections[2].scrollIntoView({
             behavior: 'smooth'
         });
         audio.play();
@@ -227,7 +230,7 @@ function startPlaying() {
             if ((audio.duration - audio.currentTime) == 0) {
                 clearInterval(durId);
                 duration.innerHTML = "0:00";
-                sections[2].scrollIntoView({
+                sections[3].scrollIntoView({
                     behavior: 'smooth'
                 });
             }
