@@ -1,4 +1,4 @@
-**Live at** lyrics.ionihal.xyz
+**Live at** https://lyrics.ionihal.xyz
 # Project Lyrics
 
 **Author:** Nihal K  
